@@ -1,0 +1,59 @@
+﻿@using MvcCodeFastProject_Alamgir.Helpers
+@model IEnumerable<MvcCodeFastProject_Alamgir.Models.MedicineItem>
+
+<h2>Medicine</h2>
+<p>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#itemModal" onclick="loadItem(@ViewData["id"])">Create New Medicine</button>
+</p>
+<table class="table table-bordered table-hover table-striped">
+    <tr >
+        <th>
+            @Html.DisplayNameFor(model => model.MedicineCategory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+            
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineCategory.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ImageFor(modelItem => item.Image, "", 200, 200)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#editItemModal" onclick="editItem(@item.ID)">Edit Medicine</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#deleteItemModal" onclick="deleteItem(@item.ID)">Delete Medicine</button>
+        </td>
+    </tr>
+}
+
+</table>

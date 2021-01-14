@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MvcCodeFastProject_Alamgir.Models.LabExam>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+}
+
+<h2 style="text-align:center;margin-top:50px;">Laboratory Examinaton Information</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExamDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LabExamID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LabExamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LabExamID })
+        </td>
+    </tr>
+}
+
+</table>

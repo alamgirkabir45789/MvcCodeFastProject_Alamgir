@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MvcCodeFastProject_Alamgir.Models.HEmployee>
+@{
+    ViewBag.Title = "ViewAll";
+    Layout = null;
+}
+
+<table class="table table-bordered table-striped table-hover " id="employeeTable" style="border:groove;">
+    <thead style="background-color:teal">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoiningDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoiningDate)
+            </td>
+            <td>
+                <a class="btn btn-primary btn-sm" onclick="Edit('@Url.Action("AddOrEdit", "HEmployee", new { id=@item.HEmployeeID})')"><i class="fa fa-pencil fa-lg">Edit</i></a>
+                <a class="btn btn-danger btn-sm" onclick="Delete('@Url.Action("Delete", "HEmployee", new { id=@item.HEmployeeID})')"><i class="fa fa-trash fa-lg"></i>Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

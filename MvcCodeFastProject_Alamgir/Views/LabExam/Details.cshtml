@@ -1,0 +1,74 @@
+﻿@model MvcCodeFastProject_Alamgir.Models.LabExam
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+}
+
+
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>LabExam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExamDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExamDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LabExamID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MvcCodeFastProject_Alamgir.Models.Doctor>
+@{
+    ViewBag.Title = "Partial_View";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2>Doctors Contact Info</h2>
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_Doctor", item)
+}
+
+
+
+  

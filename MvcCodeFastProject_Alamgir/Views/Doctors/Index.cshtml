@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MvcCodeFastProject_Alamgir.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center">Doctor Information</h2>
+
+<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-bordered table-striped table-hover" >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoiningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>*@
+           
+
+            <th>
+                @Html.DisplayNameFor(model => model.Department.DepartmentName)
+            </th>
+            <th>Action</th>
+        </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoiningDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>*@
+
+    
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.DoctorID }) |
+            @Html.ActionLink("Details", "Partial_View", new { id = item.DoctorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DoctorID })
+        </td>
+    </tr>
+    }
+
+    </table>

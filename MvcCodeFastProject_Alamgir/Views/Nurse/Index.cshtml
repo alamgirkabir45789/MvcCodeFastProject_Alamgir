@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MvcCodeFastProject_Alamgir.Models.Nurse>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2 style="text-align:center;margin-top:50px;">Nurse Information </h2>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+
+</p>
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NurseName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </th>
+
+        <th>
+            Supplier Image
+        </th>
+
+        <th style="text-align:center;">Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NurseName)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.ContactNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.JoiningDate)
+    </td>
+
+    <td>
+        <img src="@Url.Content(item.ImagePath)" height="80" width="80" />
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.NurseID }, new { @class = "btn btn-warning" })
+        @Html.ActionLink("Delete", "Delete", new { id = item.NurseID}, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+    }
+
+</table>
